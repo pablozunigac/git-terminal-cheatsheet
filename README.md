@@ -28,3 +28,8 @@ echo "[![Badge](https://...)]"
 
 #  Correct usage (single quotes prevent expansion):
 echo '[![Badge](https://...)]'
+
+# Repository Topics
+- git
+- terminal
+- zsh
