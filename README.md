@@ -20,3 +20,5 @@ A modular, production-grade reference for Git operations, terminal automation, a
 
 ```bash
 git restore . && git clean -fd
+
+[![Lint Markdown](https://github.com/pablozunigac/git-terminal-cheatsheet/actions/workflows/lint.yml/badge.svg)](https://github.com/pablozunigac/git-terminal-cheatsheet/actions)
