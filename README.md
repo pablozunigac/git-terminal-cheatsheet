@@ -1,8 +1,4 @@
-# Git Terminal Cheatsheet & Workflow Engine
-
-[![Lint Markdown Documentation](https://github.com/pablozunigac/git-terminal-cheatsheet/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/pablozunigac/git-terminal-cheatsheet/actions/workflows/lint.yml)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-![Main Protected](https://img.shields.io/badge/main-protected-blue.svg)
+[![Lint Markdown Documentation](https://github.com/pablozunigac/git-terminal-cheatsheet/actions/workflows/lint.yml/badge.svg)](https://github.com/pablozunigac/git-terminal-cheatsheet/actions)
 
 A modular, production-grade reference for Git operations, terminal automation, and macOS integration. Built for high-efficiency CLI workflows.
 
