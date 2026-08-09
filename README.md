@@ -17,5 +17,6 @@ A modular, production-grade reference for Git operations, terminal automation, a
 ## Emergency Protocols (Break Glass in Case of Fire)
 
 ### 1. Undo Uncommitted Local Changes Immediately
+
 ```bash
 git restore . && git clean -fd
