@@ -18,6 +18,7 @@ git config --global core.excludesfile ~/.gitignore_global       # Set global ign
 ssh-keygen -t ed25519 -C "email@domain.com"                     # Generate ED25519 SSH key pair on macOS for GitHub
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519                  # Store SSH passphrase securely in macOS Keychain across sessions
 pbcopy < ~/.ssh/id_ed25519.pub                                  # Copy SSH public key directly to macOS clipboard
+git config --global commit.gpgsign true && git config --global user.signingkey ~/.ssh/id_ed25519.pub     # Enable global cryptographic commit signing using ED25519 SSH public key
 ```
 
 ### 4.3 SSH Auditing & Diagnostics
