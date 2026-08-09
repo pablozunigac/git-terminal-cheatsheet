@@ -1,6 +1,8 @@
 # Git Terminal Cheatsheet & Workflow Engine
 
 [![Lint Markdown](https://github.com/pablozunigac/git-terminal-cheatsheet/actions/workflows/lint.yml/badge.svg)](https://github.com/pablozunigac/git-terminal-cheatsheet/actions)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+![Main Protected](https://img.shields.io/badge/main-protected-blue.svg)
 
 A modular, production-grade reference for Git operations, terminal automation, and macOS integration. Built for high-efficiency CLI workflows.
 
@@ -23,13 +25,8 @@ A modular, production-grade reference for Git operations, terminal automation, a
 In Zsh (the default macOS shell), the `!` character triggers history expansion when enclosed in double quotes (`"..."`). To pass `!` literally in commit messages, Markdown links, or CLI arguments, wrap the text in single quotes (`'...'`) or escape it with a backslash (`\!`):
 
 ```bash
-#  Triggers Zsh history expansion error:
+# Triggers Zsh history expansion error:
 echo "[![Badge](https://...)]"
 
-#  Correct usage (single quotes prevent expansion):
+# Correct usage (single quotes prevent expansion):
 echo '[![Badge](https://...)]'
-
-# Repository Topics
-- git
-- terminal
-- zsh
