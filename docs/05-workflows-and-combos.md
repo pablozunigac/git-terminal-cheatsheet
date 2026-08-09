@@ -1,41 +1,31 @@
-# Level 5: Production Workflows & Command Chains
+# Level 5: Workflows & Combos
 
-### 5.1 Foundations & Daily Execution
+### 5.1 Context Switching, Stash Management & Hotfix Emergency
 
 ```bash
-git add . && git commit -m "docs: update notes" && git push                             # Standard daily stage, commit, and push workflow
-pwd && ls -la && git status                                                             # Inspect current directory path, hidden files, and repository state
-touch docs/notes.md && git add docs/notes.md && git commit -m "feat: add notes"         # Create file, stage it immediately, and commit
-git restore . && git clean -fd && git status                                            # Discard all unstaged local modifications and untracked files
-git fetch origin && git status -s                                                       # Synchronize remote references and print short status overview
+git stash save "WIP: feature updates" && git switch main && git pull                        # Shelve uncommitted workspace with descriptive label and pull fresh main
+git switch -c hotfix/patch-v1 && touch fix.js && git add fix.js                             # Create isolated hotfix branch and stage critical patch files
+git commit -m "fix: production patch" && git switch main && git merge hotfix/patch-v1       # Commit hotfix patch and fast-forward integrate directly into main
+git switch - && git stash pop && git stash list                                             # Return to original feature branch, re-apply shelved changes, and verify stash
+git stash drop && git clean -fd                                                             # Discard top stash entry permanently and purge untracked local files/directories
 ```
 
-### 5.2 Branching & Team Collaboration
+### 5.2 History Audit, Recovery & Surgical Production Rollbacks
 
 ```bash
-git switch -c feature/login && git push -u origin feature/login                         # Create feature branch, switch to it, and set upstream tracking
-git switch main && git pull && git switch - && git rebase main                          # Update main branch and rebase current feature branch on top
-git stash && git switch hotfix/bug-fix && git stash pop                                 # Shelve working changes, switch to hotfix branch, and restore work
-git switch main && git merge feature/login && git branch -d feature/login               # Merge feature locally and safely delete feature branch
-git fetch --prune && git branch -vv                                                     # Prune stale remote tracking refs and list detailed branch sync status
+git log -p -2 index.js && git blame -L 10,25 index.js                                       # Inspect patch history and line-by-line author attribution for target file
+git reflog -n 10 && git checkout -b recovery-branch <commit-id>                             # Audit local reference history log and reconstruct branch from lost commit SHA
+git cherry-pick <commit-id> && git commit --amend --no-edit                                 # Surgically apply specific commit patch onto branch and amend staged adjustments
+git revert <commit-id> --no-edit && git push origin main                                    # Generate non-destructive reversal commit for target bug and push to remote
+git reset --soft HEAD~1 && git restore --staged index.js && git status
 ```
 
-### 5.3 Inspection, Recovery & Auditing
+### 5.3 Advanced Power Chains, macOS Terminal & GitHub CLI Delivery
 
 ```bash
-git log -p -2 index.js && git blame index.js                                            # View last 2 patch changes and line-by-line author attribution for a file
-git reset --soft HEAD~1 && git status                                                   # Undo last commit while keeping changes staged in index
-git restore --staged index.js && git diff index.js                                      # Unstage specific file and review its working tree differences
-git revert <commit-id> --no-edit && git push                                            # Create an automated reversal commit for target ID and push immediately
-git reflog -n 5 && git checkout -b recovery-branch <commit-id>                          # Inspect recent reference activity and rebuild branch from lost commit
-```
-
-### 5.4 Power Tools & macOS Integration
-
-```bash
-git add . && git commit --amend --no-edit && git push --force-with-lease                # Amend latest commit with staged work and execute safe force push
-git rev-parse HEAD | pbcopy                                                             # Extract full SHA-1 hash of latest commit directly to macOS clipboard
-ssh -T git@github.com                                                                   # Verify active SSH key authentication status against GitHub servers
-gh repo create my-repo --public --source=. --remote=origin --push                       # Initialize public remote repository via GitHub CLI and execute first push
-git config --global core.editor "code --wait" && git config --global alias.st status    # Set VS Code editor and configure global status alias
+git rebase -i HEAD~3 && git push --force-with-lease origin main                             # Interactive squash/edit of last 3 commits with safe upstream force push
+git add . && git commit --amend --no-edit && git rev-parse HEAD | pbcopy                    # Amend staged changes silently into HEAD and copy full commit SHA to clipboard
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519 && ssh -T git@github.com                     # Load ED25519 SSH key into macOS Keychain and verify GitHub authentication
+gh repo create my-project --public --source=. --remote=origin --push                        # Provision public GitHub repository from current folder and push initial commit
+gh pr create --fill && gh pr status                                                         # Spin up GitHub Pull Request pre-filled from commit history and print review status
 ```

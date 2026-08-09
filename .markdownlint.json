@@ -1,6 +1,16 @@
 {
-  "MD001": false,
+  "default": true,
   "MD013": false,
   "MD033": false,
-  "MD034": false
+  "MD034": false,
+  "MD041": false,
+  "MD024": {
+    "siblings_only": true
+  },
+  "MD029": {
+    "style": "ordered"
+  },
+  "MD007": {
+    "indent": 2
+  }
 }
