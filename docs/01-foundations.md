@@ -14,7 +14,7 @@ git status -s                           # Display repository status in short for
 git add index.html                      # Stage a specific file for the next commit
 git add .                               # Stage all modified and new files in the current directory
 git commit -m "feat: initial commit"    # Commit staged snapshot with a descriptive message
-git commit -am "fix: quick typo fix"   # Stage tracked modified files and commit in a single step
+git commit -am "fix: quick typo fix"    # Stage tracked modified files and commit in a single step
 ```
 
 ### 3. Remote Synchronization
@@ -30,9 +30,9 @@ git pull origin main                    # Fetch and merge remote changes into cu
 ## Common One-Liners & Command Chains
 
 ```bash
-git add . && git commit -m "docs: update notes" && git push       # Standard daily stage, commit, and push workflow
-pwd && ls -la && git status                                        # Inspect current directory path, hidden files, and repository state
-touch docs/notes.md && git add docs/notes.md && git commit -m "feat: add notes"  # Create file, stage it immediately, and commit
-git restore . && git clean -fd && git status                        # Discard all unstaged local modifications and untracked files
-git fetch origin && git status -s                                   # Synchronize remote references and print short status overview
+git add . && git commit -m "docs: update notes" && git push                         # Standard daily stage, commit, and push workflow
+pwd && ls -la && git status                                                         # Inspect current directory path, hidden files, and repository state
+touch docs/notes.md && git add docs/notes.md && git commit -m "feat: add notes"     # Create file, stage it immediately, and commit
+git restore . && git clean -fd && git status                                        # Discard all unstaged local modifications and untracked files
+git fetch origin && git status -s                                                   # Synchronize remote references and print short status overview
 ```
