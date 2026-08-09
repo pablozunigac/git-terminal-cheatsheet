@@ -1,6 +1,6 @@
 # Level 5: Production Workflows & Command Chains
 
-### 1. Foundations & Daily Execution
+### 5.1 Foundations & Daily Execution
 
 ```bash
 git add . && git commit -m "docs: update notes" && git push                             # Standard daily stage, commit, and push workflow
@@ -10,7 +10,7 @@ git restore . && git clean -fd && git status                                    
 git fetch origin && git status -s                                                       # Synchronize remote references and print short status overview
 ```
 
-### 2. Branching & Team Collaboration
+### 5.2 Branching & Team Collaboration
 
 ```bash
 git switch -c feature/login && git push -u origin feature/login                         # Create feature branch, switch to it, and set upstream tracking
@@ -20,7 +20,7 @@ git switch main && git merge feature/login && git branch -d feature/login       
 git fetch --prune && git branch -vv                                                     # Prune stale remote tracking refs and list detailed branch sync status
 ```
 
-### 3. Inspection, Recovery & Auditing
+### 5.3 Inspection, Recovery & Auditing
 
 ```bash
 git log -p -2 index.js && git blame index.js                                            # View last 2 patch changes and line-by-line author attribution for a file
@@ -30,7 +30,7 @@ git revert <commit-id> --no-edit && git push                                    
 git reflog -n 5 && git checkout -b recovery-branch <commit-id>                          # Inspect recent reference activity and rebuild branch from lost commit
 ```
 
-### 4. Power Tools & macOS Integration
+### 5.4 Power Tools & macOS Integration
 
 ```bash
 git add . && git commit --amend --no-edit && git push --force-with-lease                # Amend latest commit with staged work and execute safe force push
