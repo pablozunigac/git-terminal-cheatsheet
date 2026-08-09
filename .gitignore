@@ -4,6 +4,12 @@
 .LSOverride
 ._*
 
+# User files
+.pages
+.csv
+.xlsx
+.pdf
+
 # Editor directories and files
 .vscode/
 .idea/
