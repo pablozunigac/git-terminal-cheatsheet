@@ -6,6 +6,7 @@
 git init                                    # Initialize a new local Git repository
 git status                                  # Check working directory and staging area status
 git status -s                               # Display repository status in short format
+git diff                                    # Inspect unstaged local changes line-by-line before staging
 ```
 
 ### 1.2 Staging & Committing
@@ -35,4 +36,5 @@ pwd && ls -la && git status                                                     
 touch docs/notes.md && git add docs/notes.md && git commit -m "feat: add notes"         # Create file, stage it immediately, and commit
 git restore . && git clean -fd && git status                                            # Discard all unstaged local modifications and untracked files
 git fetch origin && git status -s                                                       # Synchronize remote references and print short status overview
+git checkout -b <branch>                                                                # Legacy alternative to git switch -c for creating and switching branches
 ```

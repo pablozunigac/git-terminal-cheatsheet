@@ -4,9 +4,9 @@
 
 ```bash
 git branch                              # List all local branches in the repository
+git switch <branch>                     # Switch to an existing branch
 git branch -a                           # List both local and remote-tracking branches
 git switch -c <branch>                  # Create and switch to a new branch
-git switch <branch>                     # Switch to an existing branch
 git branch -m <new-name>                # Rename current active branch
 git branch -d <branch>                  # Delete a local branch safely (requires merged status)
 git branch -D <branch>                  # Force delete an unmerged local branch
@@ -22,6 +22,7 @@ git merge <branch>                      # Merge specified branch changes into cu
 git rebase <branch>                     # Reapply commits on top of another base tip
 git remote -v                           # List configured remote repository URLs
 git remote add origin <url>             # Associate local repository with a remote URL
+git remote show origin                  # Inspect detailed configuration and sync status for remote origin
 ```
 
 ### 2.3 Stashing Work
@@ -38,10 +39,11 @@ git commit --allow-empty -m "<msg>"     # Create commit without file changes to 
 ## Common One-Liners & Command Chains
 
 ```bash
-git switch -c <branch> && git push -u origin <branch>                           # Create branch, switch to it, and set upstream tracking
-git commit --allow-empty -m "<msg>" && git push -u origin <branch>              # Initialize remote branch tracking without modifying files
-git switch main && git pull && git switch - && git rebase main                  # Update main branch and rebase current feature branch on top
-git stash && git switch <branch> && git stash pop                               # Shelve working changes, switch branch, and restore work
-git switch main && git merge <branch> && git branch -d <branch>                 # Merge branch locally and safely delete feature branch
-git fetch --prune && git branch -vv                                             # Prune stale remote tracking refs and list detailed branch sync status
+git switch -c <branch> && git push -u origin <branch>                       # Create branch, switch to it, and set upstream tracking
+git commit --allow-empty -m "<msg>" && git push -u origin <branch>          # Initialize remote branch tracking without modifying files
+git switch main && git pull && git switch - && git rebase main              # Update main branch and rebase current feature branch on top
+git pull --rebase origin main                                               # Fetch latest main changes and apply local commits on top without a merge commit
+git stash && git switch <branch> && git stash pop                           # Shelve working changes, switch branch, and restore work
+git switch main && git merge <branch> && git branch -d <branch>             # Merge branch locally and safely delete feature branch
+git fetch --prune && git branch -vv                                         # Prune stale remote tracking refs and list detailed branch sync status
 ```

@@ -3,25 +3,27 @@
 ### 3.1 Inspection & Auditing
 
 ```bash
-git log --oneline --graph --all         # Display commit history as a compact graphical tree
-git show HEAD                           # Show metadata and content changes of the latest commit
-git blame index.js                      # Show line-by-line revision history and author for a file
+git log --oneline --graph --all             # Display commit history as a compact graphical tree
+git log --oneline -n 10                     # Display compact commit history limited to the last 10 commits
+git show HEAD                               # Show metadata and content changes of the latest commit
+git blame index.js                          # Show line-by-line revision history and author for a file
 ```
 
 ### 3.2 Undoing Changes & Time Travel
 
 ```bash
-git restore index.js                    # Discard uncommitted local modifications in a file
-git restore --staged index.js           # Unstage file changes while keeping local modifications
-git revert <commit-id>                  # Create a new commit reverting changes from a prior commit
-git reset --soft HEAD~1                 # Undo latest commit while retaining changes in stage
-git reset --hard HEAD~1                 # Permanently discard latest commit and uncommitted changes
+git restore index.js                        # Discard uncommitted local modifications in a file
+git restore --staged index.js               # Unstage file changes while keeping local modifications
+git restore --source=<commit-id> <file>     # Restore a specific file version from an older commit
+git revert <commit-id>                      # Create a new commit reverting changes from a prior commit
+git reset --soft HEAD~1                     # Undo latest commit while retaining changes in stage
+git reset --hard HEAD~1                     # Permanently discard latest commit and uncommitted changes
 ```
 
 ### 3.3 Safety Net
 
 ```bash
-git reflog                              # Display reference log history to recover lost commits
+git reflog                                  # Display reference log history to recover lost commits
 ```
 
 ---
