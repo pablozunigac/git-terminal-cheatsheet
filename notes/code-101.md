@@ -13,7 +13,6 @@ npm install -g typescript@latest
 
 ---
 
-
 Typescript
 
 npm install typescript --save-dev
@@ -34,7 +33,6 @@ cat << 'EOF' > tsconfig.json
 EOF
 echo "const saludo: string = '¡Hola desde TypeScript nativo en mi Mac M1!'; console.log(saludo);" > index.ts
 node --experimental-strip-types index.ts
-
 
 ---
 
@@ -76,4 +74,3 @@ EOF
 Rscript index.R
 # 5. Take a snapshot to lock package versions in renv.lock file
 Rscript -e "renv::snapshot(prompt=FALSE)"
-
