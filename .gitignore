@@ -92,5 +92,4 @@ yarn-error.log*
 *.pages
 data/
 exports/
-notes/
 shell/
